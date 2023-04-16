@@ -8,10 +8,15 @@ compiled to provide low-level access to memory and language constructs that map 
 
 it contains : 4 directory 
 
- `0x00-shell_basics`
+ `0x00-hello_world`
 
- `0x01-shell_permissions`
+ `0x01-variables_if_else_while`
 
- `0x02-shell_redirections`
+ `0x02-functions_nested_loops`
  
- `0x03-shell_variables_expansions`
+ `0x03-debugging`
+ 
+ `0x04-more_functions_nested_loops`
+
+ `0x05-pointers_arrays_strings`
+ 
