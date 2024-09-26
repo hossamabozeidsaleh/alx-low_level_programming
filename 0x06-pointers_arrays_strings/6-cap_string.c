@@ -1,54 +1,31 @@
 #include "main.h"
 
 /**
- * isLower - checks if the char is lower or not
- * @c: the char to check
- * Return: 1 if success and 0 if not
- */
-int isLower(char c)
-{
-	return (c >= 97 && c <= 122);
-}
-/**
- * specialChar -  checks if the char is special or not
- * @c: the char to check
- * Return: 0 if not and 1 if yes
- */
-int specialChar(char c)
-{
-	int i;
-	char specialChar[] = " \t\n,;.!?\"(){}"
-
-	for (i = 0; i < 12; i++)
-	{
-		if (c == specialChar[i])
-			return (1);
-		return (0);
-	}
-}
-
-/**
- * cap_string - a function that capitalizes all words of a string.
- * @s: the string
- * Return: ptr
+ * cap_string - capitalizes all words in a string
+ * @s: string
+ * Return: address of s
  */
 char *cap_string(char *s)
 {
-	char *ptr = s;
-	int cond = 1;
+	int i = 0, j;
+	char a[] = " \t\n,;.!?\"(){}";
 
-	while (*s)
+	while (*(s + i))
 	{
-		if (specialChar(*s))
-			cond = 1;
-		else if (isLower(*s) && cond)
+		if (*(s + i) >= 'a' && *(s + i) <= 'z')
 		{
-			*s -= 32;
-			cond = 0;
+			if (i == 0)
+				*(s + i) -= 'a' - 'A';
+			else
+			{
+				for (j = 0; j <= 12; j++)
+				{
+					if (a[j] == *(s + i - 1))
+						*(s + i) -= 'a' - 'A';
+				}
+			}
 		}
-		else
-			cond = 0;
-		s++;
+		i++;
 	}
-	return (ptr);
+	return (s);
 }
